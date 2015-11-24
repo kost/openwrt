@@ -137,6 +137,7 @@ get_status_led() {
 		;;
 	pbr-m1|\
 	w306r-v20|\
+	witi|\
 	zbt-wr8305rt)
 		status_led="$board:green:sys"
 		;;
