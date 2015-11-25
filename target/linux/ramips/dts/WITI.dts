@@ -6,7 +6,7 @@
 	compatible = "mediatek,mt7621-eval-board", "mediatek,mt7621-soc";
 	model = "WiTi";
 
-	memory at 0 {
+	memory@0 {
 		device_type = "memory";
 		reg = <0x0 0x10000000>;
 	};
@@ -15,15 +15,15 @@
 		bootargs = "console=ttyS0,57600";
 	};
 
-	sdhci at 10130000 {
+	sdhci@10130000 {
 		status = "okay";
 	};
 
-	palmbus at 1E000000 {
-		spi at b00 {
+	palmbus@1E000000 {
+		spi@b00 {
 			status = "okay";
 
-			m25p80 at 0 {
+			m25p80@0 {
 				#address-cells = <1>;
 				#size-cells = <1>;
 				compatible = "w25q256";
@@ -31,25 +31,25 @@
 				linux,modalias = "m25p80";
 				spi-max-frequency = <10000000>;
 
-				partition at 0 {
+				partition@0 {
 					label = "u-boot";
 					reg = <0x0 0x30000>;
 					read-only;
 				};
 
-				partition at 30000 {
+				partition@30000 {
 					label = "u-boot-env";
 					reg = <0x30000 0x10000>;
 					read-only;
 				};
 
-				factory: partition at 40000 {
+				factory: partition@40000 {
 					label = "factory";
 					reg = <0x40000 0x10000>;
 					read-only;
 				};
 
-				partition at 50000 {
+				partition@50000 {
 					label = "firmware";
 					reg = <0x50000 0xfb0000>;
 				};
@@ -57,7 +57,7 @@
 			};
 		};
 
-		i2c at 900 {
+		i2c@900 {
 			compatible = "ralink,i2c-mt7621";
 			reg = <0x900 0x100>;
 			#address-cells = <1>;
@@ -66,7 +66,7 @@
 			pinctrl-0 = <&i2c_pins>;
 			status = "okay";
 
-			pcf8563: rtc at 51 {
+			pcf8563: rtc@51 {
 				status = "okay";
 				compatible = "nxp,pcf8563";
 				reg = <0x51>;
@@ -74,11 +74,11 @@
 		};
 	};
 
-	pcie at 1e140000 {
+	pcie@1e140000 {
 		status = "okay";
 
 		pcie0 {
-			mt76 at 0,0 {
+			mt76@0,0 {
 				reg = <0x0000 0 0 0 0>;
 				device_type = "pci";
 				mediatek,mtd-eeprom = <&factory 0x0000>;
@@ -87,7 +87,7 @@
 		};
 
 		pcie1 {
-			mt76 at 1,0 {
+			mt76@1,0 {
 				reg = <0x0000 0 0 0 0>;
 				device_type = "pci";
 				mediatek,mtd-eeprom = <&factory 0x8000>;
@@ -96,7 +96,7 @@
 		};
 	};
 
-	ethernet at 1e100000 {
+	ethernet@1e100000 {
 		mtd-mac-address = <&factory 0xe000>;
 	};
 
