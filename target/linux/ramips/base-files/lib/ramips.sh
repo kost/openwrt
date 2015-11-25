@@ -392,7 +392,7 @@ ramips_board_detect() {
 		name="whr-g300n"
 		;;
 	*"WiTi")
-		name="WiTi"
+		name="witi"
 		;;
 	*"WIZARD 8800")
 		name="wizard8800"
