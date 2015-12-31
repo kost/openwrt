@@ -100,3 +100,34 @@ define KernelPackage/sound-mtk/description
 endef
 
 $(eval $(call KernelPackage,sound-mtk))
+
+
+
+define KernelPackage/witi-sdhc-rw
+  SUBMENU:=Other modules
+  TITLE:=Use SD card readwrite patch for WiTi
+  DEPENDS:=@(TARGET_ramips_mt7621) +kmod-sdhci-mt7620
+  KCONFIG:= \
+        CONFIG_WITI_SDRW
+endef
+
+define KernelPackage/witi-sdhc-rw/description
+ Use config to enable write support for SD cards on WiTI boards
+endef
+
+$(eval $(call KernelPackage,witi-sdhc-rw))
+
+
+define KernelPackage/witi-hnat
+  SUBMENU:=Netfilter Extensions
+  TITLE:=Use hardware NAT extension for Witi
+  DEPENDS:=@(TARGET_ramips_mt7621) 
+  KCONFIG:= \
+	CONFIG_HNAT_V2
+endef
+
+define KernelPackage/witi-hnat/description
+ Use config to enable hardware NAT on WiTI boards
+endef
+
+$(eval $(call KernelPackage,witi-hnat))
