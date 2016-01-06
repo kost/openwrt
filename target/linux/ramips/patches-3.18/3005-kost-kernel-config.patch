@@ -1,0 +1,19 @@
+--- arch/mips/ralink/Kconfig.orig	2015-11-27 01:43:37.074811067 +0100
++++ arch/mips/ralink/Kconfig	2016-01-06 10:26:28.685811635 +0100
+@@ -22,6 +22,16 @@
+ 	default y
+ 	depends on !SOC_MT7621
+ 
++config CONFIG_HNAT_V2
++	bool
++	default y
++	depends on SOC_MT7621
++
++config CONFIG_WITI_SDRW
++	bool
++	default y
++	depends on SOC_MT7621
++
+ choice
+ 	prompt "Ralink SoC selection"
+ 	default SOC_RT305X
