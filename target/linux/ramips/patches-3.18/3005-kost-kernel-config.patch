@@ -4,12 +4,12 @@
  	default y
  	depends on !SOC_MT7621
  
-+config CONFIG_HNAT_V2
++config HNAT_V2
 +	bool
 +	default y
 +	depends on SOC_MT7621
 +
-+config CONFIG_WITI_SDRW
++config WITI_SDRW
 +	bool
 +	default y
 +	depends on SOC_MT7621
